@@ -1,4 +1,4 @@
-package in.co.rays.user;
+package in.co.rays.crud;
 
 import java.util.Date;
 
@@ -7,30 +7,33 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class UpdateUser {
+import in.co.rays.crud.UserDTO;
 
+public class TestInsert {
+	
 	public static void main(String[] args) {
-
+		
 		UserDTO dto = new UserDTO();
-
-		dto.setId(1);
-		dto.setFirstname("yogesh");
-		dto.setLastname("sen");
-		dto.setLogin("yogesh@gmail.com");
-		dto.setPassword("yogesh123");
+		
+		//dto.setId(1);
+		dto.setFirstname("priya");
+		dto.setLastname("mabdal");
+		dto.setLogin("priya@gmail.com");
+		dto.setPassword("priyal123");
 		dto.setDob(new Date());
-		dto.setAddress("sagar");
-
+		dto.setAddress("kolkataS");
+		
+		
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
-
+		
 		Session session = sf.openSession();
-
+		
 		Transaction tx = session.beginTransaction();
-
-		session.update(dto);
-
+		
+		session.save(dto);
+		
 		tx.commit();
-
+		
 		session.close();
 	}
 

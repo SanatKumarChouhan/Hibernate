@@ -1,38 +1,32 @@
-package in.co.rays.user;
-
-import java.util.Date;
+package in.co.rays.crud;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class TestInsert {
-	
+import in.co.rays.crud.UserDTO;
+
+public class DeleteUser {
+
 	public static void main(String[] args) {
-		
+
 		UserDTO dto = new UserDTO();
-		
-		//dto.setId(1);
-		dto.setFirstname("rahul");
-		dto.setLastname("chouhan");
-		dto.setLogin("rahul@gmail.com");
-		dto.setPassword("rahul123");
-		dto.setDob(new Date());
-		dto.setAddress("indore");
-		
-		
+
+		dto.setId(3);
+
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
-		
+
 		Session session = sf.openSession();
-		
+
 		Transaction tx = session.beginTransaction();
 		
-		session.save(dto);
+		session.delete(dto);
 		
 		tx.commit();
 		
 		session.close();
+
 	}
 
 }

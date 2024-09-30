@@ -1,4 +1,4 @@
-package in.co.rays.user;
+package in.co.rays.crud;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
