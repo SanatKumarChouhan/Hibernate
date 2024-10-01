@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 30-Sep-2024, 4:38:13 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="in.co.rays.oneonone.Employee" table="EMPLOYEE">
+		<id name="id" type="int">
+			<column name="ID" />
+			<generator class="assigned" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="NAME" />
+		</property>
+		<!-- <property name="empAddress" type="java.lang.String">
+			<column name="EMPADDRESS" />
+		</property> -->
+		<one-to-one name="empAddress" cascade="all"
+			class="in.co.rays.oneonone.Address"></one-to-one>
+	</class>
+</hibernate-mapping>
